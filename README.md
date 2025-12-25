@@ -1,10 +1,24 @@
-# Owencyclopedia — MVP (Fractal “Focus Lens”)
+# Owencyclopedia — MVP (content-first fractal map)
 
-This is a **lightweight, static** prototype for navigating Owen’s life taxonomy as a **fractal**:
+This is a **lightweight, static** personal website for navigating Owen’s life taxonomy as a **fractal** — with the **page content front-and-center** and navigation (outline + map) secondary.
 
-- You see **big domains** at the top (Health, Relationships, Mastery, …)
-- Click any node to **zoom in** (that node becomes the center, its children appear around it)
-- “Related” links support **rare cross-domain blends** without turning the whole thing into a messy graph
+## What it does
+
+- **Content-first page view**: each node renders as a readable “paper” page (notes + sections).
+- **Outline (collapsible)**: quickly jump through the tree without getting lost.
+- **Map (fractal lens)**: focused node in the center, **children ring** around it, and a **parent node** above (when applicable).
+- **Search**: type to jump anywhere fast (keyboard friendly).
+- **Deep links**: URL hash updates (`#id=...`) so you can share a specific node.
+
+## Controls
+
+- **Outline**: toggle in the header → click any node to focus.
+- **Map**:
+  - Scroll to **zoom** (bounded)
+  - Drag to **pan** (bounded)
+  - Double-click to **reset**
+  - The **Parent** node (dashed) is clickable and navigates “up”
+- **Search**: type → arrow keys → Enter
 
 ## Run it
 
@@ -32,13 +46,23 @@ Each entry is a node:
 - `id`: stable unique key (don’t change often)
 - `title`: what you see
 - `blurb`: short description
-- `content`: long-form notes for the main page (simple Markdown-ish supported)
+- `content`: long-form notes for the main page (**simple Markdown-ish supported**: `#`, `##`, `###`, `-` lists)
 - `children`: nested pages
 - `related`: rare cross-links between branches
 
-## What to iterate next (fast)
+## Deploy (GitHub Pages)
 
-- Decide if you prefer **focus-lens coherence** (this MVP) vs **free-roam universe** (your `mvp-v1`)
-- Add “backlinks” (show what links *to* the current page) to make cross-links feel natural
+This repo is “Pages-ready” because the site lives at the root:
+
+- GitHub → **Settings → Pages**
+- **Deploy from a branch**
+- Branch: `main`
+- Folder: `/ (root)`
+
+## Next ideas (fast)
+
+- **Backlinks**: show what links *to* the current page (makes cross-links feel natural).
+- **Content import**: Notion export → generate `data.js` nodes/content.
+- **Richer markdown**: bold/italics, links, and inline code in `content`.
 
 

@@ -148,7 +148,7 @@
 
   const state = {
     focusId: DATA.rootId,
-    outlineOpen: false,
+    outlineOpen: true,
     mapOpen: true,
     search: {
       open: false,
@@ -742,7 +742,7 @@
   // Boot
   const startId = parseHashId();
   state.focusId = startId && byId.has(startId) ? startId : DATA.rootId;
-  setOutlineOpen(false);
+  setOutlineOpen(true);
   setMapOpen(true);
   renderAll();
   if (!startId) setHashId(state.focusId);
